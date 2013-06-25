@@ -20,7 +20,7 @@ import com.zazzercode.robot.models.SurgeryRobot;
  */
 public class AddSurgeryRobotView extends JInternalFrame {
 
-	private SurgeryRobotController controller;
+	private SurgeryRobotController controller = new SurgeryRobotController();
 	private JLabel nameLabel;
 	private JTextField name;
 
