@@ -18,7 +18,7 @@ import com.zazzercode.robot.models.SurgeryRobot;
  * @author prayag
  * 
  */
-public class AddSurgeryRobotView extends JInternalFrame {
+public class Add extends JInternalFrame {
 
 	private SurgeryRobotController controller = new SurgeryRobotController();
 	private JLabel nameLabel;
@@ -30,7 +30,7 @@ public class AddSurgeryRobotView extends JInternalFrame {
 
 	private JButton save;
 
-	public AddSurgeryRobotView() {
+	public Add() {
 		super("Add surgery Robot", true, true, true);
 		this.setSize(700, 600);
 		this.setLayout(null);

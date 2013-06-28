@@ -12,7 +12,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import com.zazzercode.robot.views.surgeryrobot.AddSurgeryRobotView;
+import com.zazzercode.robot.views.surgeryrobot.Add;
+import com.zazzercode.robot.views.surgeryrobot.List;
 
 /**
  * @author prayag
@@ -46,8 +47,9 @@ public class RobotFrame extends JFrame {
 		itemAdd.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				AddSurgeryRobotView add = new AddSurgeryRobotView();
-				desktopPane.add(add).setVisible(true);
+				Add add = new Add();
+				List list = new List();
+				desktopPane.add(list).setVisible(true);
 
 			}
 		});

@@ -1,4 +1,4 @@
-package com.zazzercode.robot.RobotMVC;
+package com.zazzercode.robot;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -5,7 +5,7 @@ import javax.swing.SwingUtilities;
 import com.zazzercode.robot.views.RobotFrame;
 
 /**
- * Hello world!
+ * @author prayag
  * 
  */
 public class App {
