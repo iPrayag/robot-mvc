@@ -12,6 +12,7 @@ import java.util.List;
 public class Robot {
 	private String name;
 	private String architecture;
+	private String secretCode;
 	private List<Robot> friends;
 
 	public String getName() {
@@ -28,6 +29,14 @@ public class Robot {
 
 	public void setArchitecture(String architecture) {
 		this.architecture = architecture;
+	}
+
+	public String getSecretCode() {
+		return secretCode;
+	}
+
+	public void setSecretCode(String secretCode) {
+		this.secretCode = secretCode;
 	}
 
 	public List<Robot> getFriends() {
