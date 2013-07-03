@@ -2,6 +2,7 @@ package com.zazzercode.robot;
 
 import javax.swing.SwingUtilities;
 
+import com.zazzercode.robot.models.util.RobotScheduler;
 import com.zazzercode.robot.views.RobotFrame;
 
 /**
@@ -10,6 +11,11 @@ import com.zazzercode.robot.views.RobotFrame;
  */
 public class App {
 	public static void main(String[] args) {
+		try {
+			RobotScheduler.startSchedule();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
