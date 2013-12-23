@@ -4,6 +4,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import com.zazzercode.robot.controllers.util.QrGenerator;
+
 /**
  * Unit test for simple App.
  */
@@ -28,7 +30,9 @@ public class AppTest extends TestCase {
 	/**
 	 * Rigourous Test :-)
 	 */
-	public void testApp() {
+	public void testQr() {
+		String qrInfo = "Nrs 1000";
+	        QrGenerator.generateQr(qrInfo);
 		assertTrue(true);
 	}
 }
