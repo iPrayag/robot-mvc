@@ -6,4 +6,8 @@
 
 <b>Run TestCases</b>
 
-`$ mvn -Dtest=AppTest testQr`
+`$ mvn -Dtest=AppTest test`
+
+To run a single test, 
+
+`$ mvn -Dtest=AppTest#testEncryptedQr test`

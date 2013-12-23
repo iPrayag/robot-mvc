@@ -1,1 +1,1 @@
-mvn -Dtest=AppTest test
+mvn -Dtest=AppTest#testEncryptedQr test

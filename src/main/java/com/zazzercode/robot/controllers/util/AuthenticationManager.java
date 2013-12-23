@@ -17,7 +17,7 @@ public class AuthenticationManager {
 	private static Key key = null;
 	private static Cipher cipher = null;
 
-	private static byte[] encrypt(String input) throws Exception {
+	public static byte[] encrypt(String input) throws Exception {
 		key = KeyGenerator.getInstance(algorithm).generateKey();
 		cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -25,7 +25,7 @@ public class AuthenticationManager {
 		return cipher.doFinal(inputBytes);
 	}
 
-	private static String decrypt(byte[] encryptionBytes) throws Exception {
+	public static String decrypt(byte[] encryptionBytes) throws Exception {
 		key = KeyGenerator.getInstance(algorithm).generateKey();
 		cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.DECRYPT_MODE, key);

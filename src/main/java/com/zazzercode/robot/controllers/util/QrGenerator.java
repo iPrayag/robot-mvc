@@ -3,6 +3,7 @@ package com.zazzercode.robot.controllers.util;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 import java.security.Key;
 
@@ -10,6 +11,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import net.glxn.qrgen.*;
 import net.glxn.qrgen.image.*;
+import net.glxn.qrgen.image.ImageType;
 //import net.glxn.qrgen.vcard.VCard;
 
 /**
@@ -17,45 +19,26 @@ import net.glxn.qrgen.image.*;
  * 
  */
 public class QrGenerator {
+       public static Logger logger = Logger.getLogger(QrGenerator.class.getName());
+       public static final String QR_PATH =  "/home/pupadhyay/scan2pay.JPG";
+
        public static void generateQr(String data){
-		// get QR file from text using defaults
-	       File file = QRCode.from(data).file();
+        ByteArrayOutputStream outputStream = QRCode.from(data)
+                                        .to(ImageType.JPG).stream();
+ 
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(QR_PATH));
+ 
+            fileOutputStream.write(outputStream.toByteArray());
+            logger.info("QR code is generated");
 
-	       // get QR stream from text using defaults
-	       ByteArrayOutputStream stream = QRCode.from(data).stream();
-
-	       // override the image type to be JPG
-	       QRCode.from(data).to(ImageType.JPG).file();
-	       QRCode.from(data).to(ImageType.JPG).stream();
-
-	       // override image size to be 250x250
-	       QRCode.from(data).withSize(250, 250).file();
-	       QRCode.from(data).withSize(250, 250).stream();
-
-	       // override size and image type
-	       QRCode.from(data).to(ImageType.GIF).withSize(250, 250).file();
-	       QRCode.from(data).to(ImageType.GIF).withSize(250, 250).stream();
-
-	       // supply own outputstream
-	       // QRCode.from(data).to(ImageType.PNG).writeTo(outputStream);
-
-	       // supply own file name
-	       QRCode.from(data).file("QRCode");
-
-	       // supply charset hint to ZXING
-	       QRCode.from(data).withCharset("UTF-8");
-
-	       // encode contact data as vcard using defaults
-	       /*
-	       VCard prayag = new VCard("Prayag Upd")
-		       .setEmail("prayag.upd@gmail.com")
-		       .setAddress("Ghattekulo-32, Kathmandu")
-		       .setTitle("Mister")
-		       .setCompany("Z Inc.")
-		       .setPhonenumber("9849026704")
-		       .setWebsite("www.prayag-waves.blogspot.com");
-	       QRCode.from(prayag).file();
-	       */
-
+            fileOutputStream.flush();
+            fileOutputStream.close();
+ 
+        } catch (FileNotFoundException e) {
+            logger.info("No suck file exists.");
+        } catch (IOException e) {
+            // Do Logging
+        }
        }   
 }
